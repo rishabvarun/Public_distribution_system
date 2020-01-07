@@ -1,0 +1,105 @@
+<html>
+<head>
+<style>
+.site{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ grid-template-rows:2fr 2fr  10fr 3fr;
+ grid-template-areas:"title title"
+ "menu menu"
+ "main sidebar"
+ "main foot";
+}
+main{
+background-color:red;
+ grid-area:main;
+  display:grid;
+  grid-template-columns:auto auto;
+  grid-template-rows:3fr 2fr;
+  grid-template-areas:"img text"
+  "img blank";
+  grid-gap:10px;
+
+}
+
+
+header{
+text-align:center;
+background-color:pink;
+grid-area:title;
+}
+.sidebar{
+background-color:yellow;
+grid-area:sidebar;
+display:grid;
+grid-template-columns:3fr 3fr 3fr;
+grid-template-rows:auto auto 2fr;
+grid-template-areas:"set1 set2 set3"
+"set5 content set7"
+"set4 set9 set8";
+}
+footer{
+background-color:green;
+grid-area:foot;
+}
+main p img{
+ grid-area:img;
+ background-color:brown;
+ margin-left:10px;
+ }
+main h1{
+grid-area:text;
+background-color:orange;
+margin:10px;
+}
+.menu{
+grid-area:menu;
+background-color:grey;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+}
+
+.office{
+ grid-area:blank;
+ background-color:indigo;
+ }
+
+.sidebar p {
+grid-area:content;
+}
+.card{
+grid-area:set1;
+background-color:maroon;}
+
+</style>
+    </head>
+<body>
+<div class="site">
+    <header>this is header</header>
+    <div class="menu">
+        <a href="/home/login">this is menu and it contains several references</a>
+    </div>
+    <main><p><img src="bee.jpeg" ><br>this is image</p>
+        <h1>this is the min test thats need to bee placed in left side</h1>
+        <div class="office">
+            <p>br>this is sub text thats need to be coloured in indigo</p>
+        </div>
+    </main>
+    <div class="sidebar">
+        <div class="card" style="width: 18rem;">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Card title</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+</div>
+        <p><img src="bee.jpeg"></p>
+    </div>
+
+    <footer>this is footer with blue color</footer>
+</div>
+</body>
+</html>

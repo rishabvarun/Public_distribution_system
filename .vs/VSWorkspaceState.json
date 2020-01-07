@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Distributor",
+    "\\Distributor\\templates",
+    "\\Distributor\\templates\\Distributor",
+    "\\Government",
+    "\\Government\\templates",
+    "\\Government\\templates\\Government",
+    "\\PDS",
+    "\\User",
+    "\\User\\templates",
+    "\\User\\templates\\User"
+  ],
+  "SelectedNode": "\\Government\\views.py",
+  "PreviewInSolutionExplorer": false
+}

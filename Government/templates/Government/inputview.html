@@ -1,0 +1,72 @@
+{% extends 'Government/base.html'%}
+{% block content %}
+
+<html>
+<head>
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable({{ json_list|safe}});
+
+            var options = {
+                title: '',
+                curveType: 'function',
+                legend: { position: 'bottom' },
+                 vAxis: {
+          title: 'Quantity'
+        },
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+
+    </script>
+
+    {% load static %}
+    <title>Input detail</title>
+  
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+    
+
+</head>
+<body>
+
+    <h2>{{stock_name}} Record</h2>
+    <div id="curve_chart" style="width: 1200px; height: 400px"></div>
+    <br>
+    <table class="table">
+        <tr>
+            <th>SR NO</th>
+            <th>Input Date</th>
+            <th>Input Quantity</th>
+
+
+
+        </tr>
+
+        {% for stock in Dist_info.D_Stock  %}
+
+
+        {%ifequal stock.C_Name stock_name %}
+        {% for entry in  stock.D_Input %}
+        <tr>
+            <td></td>
+            <td>{{entry.I_Date }}</td>
+            <td>{{entry.I_Quantity }}</td>
+
+        </tr>
+        {% endfor %}
+        {% endifequal %}
+        {% endfor %}
+
+
+    </table>
+</body>
+</html>
+{% endblock %}

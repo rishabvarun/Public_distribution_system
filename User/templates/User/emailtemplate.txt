@@ -1,0 +1,14 @@
+ Transaction
+ Ration ID={{R_ID}}
+ Distributor ID={{D_ID}}
+ Transaction ID={{Transaction_id}}
+ Time={{time}}
+					
+					Automated Bill 
+
+ SR NO   COMMODITY    QUANTITY    AVAILABLE BALANCE   COST
+   1       RICE       {{rice}}      {{r_balance}}    {{x}}
+   2       WHEAT      {{wheat}}     {{w_balance}}    {{y}}
+   3       KEROSENE   {{kerosene}}  {{k_balance}}    {{z}}
+kindly reply to
+{{ useremail }}

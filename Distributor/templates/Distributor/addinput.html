@@ -1,0 +1,51 @@
+{% extends 'Distributor/base.html'%}
+{% block content %}
+
+    <html>
+    {% load static %}
+    <title>Input Entry</title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+    </head>
+    <body>
+
+        <h1>Input Entry</h1>
+        <form method="post">
+            {% csrf_token %}
+            <table class="table">
+                <tr>
+                    <th>SR NO</th>
+                    <th>Commodity Name</th>
+                    <th>Commodity Code</th>
+                    <th>Input Quantity</th>
+                    <th>Selected</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Rice</td>
+                    <td>123</td>
+                    <td><input type="number" min="0" id="rice" name="rice" placeholder="Rice Quantity" value="0"></td>
+                    <td><input type="checkbox" id="rc" name="rc"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Wheat</td>
+                    <td>856</td>
+                    <td><input type="number" min="0" id="wheat" name="wheat" placeholder="wheat Quantity" value="0"></td>
+                    <td><input type="checkbox" id="wc" name="wc"></td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Rice</td>
+                    <td>675</td>
+                    <td><input type="number" min="0" id="kerosene" name="kerosene" placeholder="kerosene Quantity" value="0"></td>
+                    <td><input type="checkbox" id="kc" name="kc"></td>
+                </tr>
+            </table>
+            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                <span class="glyphicon glyphicon-search"></span> Search
+            </button>
+        </form>
+    </body>
+    </html>
+{% endblock %}

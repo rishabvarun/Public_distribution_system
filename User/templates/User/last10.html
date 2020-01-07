@@ -1,0 +1,52 @@
+{% extends 'User/base.html'%}
+{% block content %}
+   {% load static %}
+<title>Last Transaction</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+<html>
+<head>
+    <style>
+        a {
+            position: absolute;
+            bottom: 5%;
+        }
+
+        .table {
+            counter-reset: serial-number; /* Set the serial number counter to 0 */
+        }
+
+            .table td:first-child:before {
+                counter-increment: serial-number; /* Increment the serial number counter */
+                content: counter(serial-number); /* Display the counter */
+            }
+    </style>
+</head>
+<body>
+    <h1>last 10 transaction</h1>
+    <table class="table">
+        <tr>
+            <th>Serial no        </th>
+            <th>distributor id</th>
+            <th> Date</th>
+            <th>rice</th>
+            <th>wheat</th>
+            <th>kerosene</th>
+            <th>amount</th>
+        </tr>
+        {% for x in user %}
+        <tr>
+            <td></td>
+            <td>{{x.Distributor_id}}</td>
+            <td>{{x.Date}}</td>
+            <td>{{x.Rice}}</td>
+            <td>{{x.Wheat}}</td>
+            <td>{{x.Kerosene}}</td>
+            <td>10</td>
+        </tr>
+        {%endfor%}
+    </table>
+    <a href="http://127.0.0.1:8000/User/menu" type="button" class="btn btn-primary btn-lg btn-block">Back</a>
+</body>
+</html>
+{% endblock %}%}

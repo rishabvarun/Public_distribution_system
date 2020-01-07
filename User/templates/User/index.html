@@ -1,0 +1,39 @@
+{% extends 'User/base.html'%}
+
+{% block content %}
+
+
+    {% for person in filter.qs  %}
+
+<ul>
+
+    <li>
+        <h2> Name:{{ person.name }}</h2>
+        <h2>Age:${{ person.age }}</h2>
+        <h2>Description:{{ person.sex }} </h2>
+        <form action="{% url 'User:person-delete' person.id %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-default btn-sm">Delete</button>
+        </form>
+        <form action="{% url 'User:person-update' person.id  %}" method="post" style="display: inline;">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-default btn-sm">Update</button>
+        </form>
+
+
+    </li>
+
+
+</ul>
+
+{% endfor %}
+
+ 
+
+
+
+<form action="{% url 'User:person-entry'  %}" method="post" style="display: inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-default btn-sm">Make a Product entry here</button>
+</form>
+{% endblock %}

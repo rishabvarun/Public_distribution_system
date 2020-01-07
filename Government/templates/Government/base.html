@@ -1,0 +1,164 @@
+﻿<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <style>
+          #top  {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+          .navigation {
+  width: 300px;
+}
+
+/* reset our lists to remove bullet points and padding */
+.mainmenu, .submenu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+ 
+}
+          .mainmenu {
+              float:left;
+            
+          }
+
+/* make ALL links (main and submenu) have padding and background color */
+.mainmenu a {
+  display: block;
+  background-color: #CCC;
+  text-decoration: none;
+  padding: 10px;
+  color: #000;
+}
+
+/* add hover behaviour */
+.mainmenu a:hover {
+    background-color: #C5C5C5;
+}
+
+
+/* when hovering over a .mainmenu item,
+  display the submenu inside it.
+  we're changing the submenu's max-height from 0 to 200px;
+*/
+
+.mainmenu li:hover .submenu {
+  display: block;
+  max-height: 300px;
+}
+
+/*
+  we now overwrite the background-color for .submenu links only.
+  CSS reads down the page, so code at the bottom will overwrite the code at the top.
+*/
+
+.submenu a {
+  background-color: #999;
+}
+
+/* hover behaviour for links inside .submenu */
+.submenu a:hover {
+  background-color: #666;
+}
+
+/* this is the initial state of all submenus.
+  we set it to max-height: 0, and hide the overflowed content.
+*/
+.submenu {
+  overflow: hidden;
+  max-height: 0;
+  -webkit-transition: all 0.5s ease-out;
+}
+
+          .abc {
+              float:left;
+              width:85%;
+          }
+      </style>
+  </head>
+  <body>
+      <div>
+          <img id="top" align="middle" style="width:50%" height="150" src='https://www.ptcnews.tv/wp-content/uploads/2019/06/One-Nation-One-Ration-Card-696x398.jpg'>
+      </div>
+      <style>
+          .news-scrollbar {
+              background-color: yellow;
+          }
+      </style>
+      <div class="news-scrollbar">
+          <marquee behavior="scroll" scrollamount="3" direction="left" onmouseover="this.stop();" onmouseout="this.start();">
+
+              &nbsp;&nbsp;<span style="color:#3b3b3b;">❖</span>&nbsp;Salient Features of National Food Security Act:
+              &nbsp;&nbsp;<span style="color:#3b3b3b;">❖</span>&nbsp;Upto 75% of the rural population and 50% of the urban population will be covered under TPDS.
+              &nbsp;&nbsp;<span style="color:#3b3b3b;">❖</span>&nbsp;Uniform entitlement of 5 kg per person per month.
+              &nbsp;&nbsp;<span style="color:#3b3b3b;">❖</span>&nbsp;Antyodaya Anna Yojana (AAY) (poorest of the poor) households will be protected at 35 kg per household per month.
+              &nbsp;&nbsp;<span style="color:#3b3b3b;">❖</span>&nbsp;Foodgrains under TPDS will be made available at subsidised prices of Rs. 3/2/1 per kg for rice, wheat and coarse grains.
+              &nbsp;&nbsp;<span style="color:#3b3b3b;">❖</span>&nbsp;For women empowerment eldest woman of the household of age 18 years or above to be the head of the household for the purpose of issuing of ration cards.
+              &nbsp;&nbsp;<span style="color:#3b3b3b;">❖</span>&nbsp;Grievance redressal mechanism at the District and State levels.
+              &nbsp;&nbsp;<span style="color:#3b3b3b;">❖</span>&nbsp;Transparency and Accountability provisions for disclosure of records relating to PDS.
+              &nbsp;&nbsp;<span style="color:#3b3b3b;">❖</span>&nbsp;Setting up of Vigilance Committees and social audits.
+
+
+
+          </marquee>
+      </div>
+   
+    
+
+      <nav class="navigation">
+          <ul class="mainmenu">
+              <li><a class="nav-link active" href="http://127.0.0.1:8000/Government/login/home">HOME</a></li>
+
+              <li>
+                  <a href="">User</a>
+                  <ul class="submenu">
+                      <li> <a class="dropdown-item" href="http://127.0.0.1:8000/Government/login/home/ration">Create Ration</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:8000/Government/login/home/Rationmanage">Manage Ration</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:8000/Government/login/home/renew">Refil Ration</a></li>
+
+                  </ul>
+              </li>
+              <li>
+                  <a href="">Distributor</a>
+                  <ul class="submenu">
+
+                      <li>   <a class="dropdown-item" href="http://127.0.0.1:8000/Government/login/home/createdistributor">Create Distributor</a></li>
+                      <li>  <a class="dropdown-item" href="http://127.0.0.1:8000/Government/login/home/Distributormanage">Manage Distributor</a></li>
+                      <li>   <a class="dropdown-item" href="http://127.0.0.1:8000/Government/login/home/addcircular">ADD Circular</a></li>
+                      
+                  </ul>
+              </li>
+              <li>
+                  <a href="">Search</a>
+                  <ul class="submenu">
+                      <li>  <a class="dropdown-item" href="http://127.0.0.1:8000/Government/login/home/Distributorsearch">Distributor</a></li>
+                      <li> <a class="dropdown-item" href="http://127.0.0.1:8000/Government/login/home/rationview">Rationcard</a></li>
+                      <li><a class="dropdown-item" href="http://127.0.0.1:8000/Government/login/home/Personsearch">Person</a></li>
+                      <li> <a class="dropdown-item" href="http://127.0.0.1:8000/Government/login/home/transactionview">Transaction</a></li>
+
+                      <li><a class="dropdown-item" href="http://127.0.0.1:8000/Government/login/home/circularview">Circular Report</a></li>
+                  </ul>
+              </li>
+              <li><a class="nav-link active" href="http://127.0.0.1:8000/Government/login/home/logout">Logout</a></li>
+          </ul>
+
+</nav>
+      <div class="abc">
+          {% block content%}
+          {% endblock%}
+      </div>
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+<form method="get">
+    <input id="q" name="q" type="text" placeholder="search">
+    <button type="submit" class="btn btn-primary btn-lg btn-block">
+        <span class="glyphicon glyphicon-search"></span> Search
+    </button>
+</form>
+{% for Dist in posts %}
+<h3>{{Dist.D_name}}</h3>
+<br>
+{%endfor%}

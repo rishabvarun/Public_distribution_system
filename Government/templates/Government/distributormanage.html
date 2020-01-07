@@ -1,0 +1,92 @@
+{% extends 'Government/base.html'%}
+
+{% block content %}
+  {% load static %}
+<title>Distributor management</title>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+</head>
+<h2>Distributor List</h2>
+
+<form method="get">
+    <div class="well">
+      
+
+
+        <table class="table">
+            <tr>
+                <td></td>
+                <th><label for="id_D_ID__icontains">ID:</label></th>
+                <th><label for="id_D_name__exact">Name:</label></th>
+                <th><label for="id_D_PIN__icontains">PIN:</label></th>
+                <th><label for="id_D_Locality__icontains">Locality code:</label></th>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input id="id_D_ID__icontains" name="D_ID__icontains" type="text">
+
+                </td>
+                <td>
+                    <input id="id_D_name__icontains" name="D_name__icontains" type="text">
+
+                </td>
+                <td>
+                    <input id="id_D_PIN__icontains" name="D_PIN__icontains" type="text">
+                </td>
+                <td>
+                    <input id="id_D_Locality__icontains" name="D_Locality__icontains" type="text">
+                </td>
+            </tr>
+
+
+
+
+
+
+        </table>
+
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>SR NO</th>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Stock Detail</th>
+
+            <th>COMPLAIN</th>
+            <th>INSPECTION</th>
+            <th>ADD INSPECTION</th>
+            <th>UPDATE</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%  for circular in filter.qs %}
+        <tr>
+            <td></td>
+            <td>{{circular.D_ID}}</td>
+            <td>{{circular.D_name}}</td>
+            <td><a type="button" class="btn btn-primary" href="{% url 'Government:stockdetail' circular.D_ID %}"> Stock detail </a></td>
+
+            <td><a type="button" class="btn btn-info" href="{% url 'Government:complainview' circular.D_ID %}"> Complain </a></td>
+            <td><a type="button" class="btn btn-success" href="{% url 'Government:inspectionview' circular.D_ID %}"> Inspection </a></td>
+            <td><a type="button" class="btn btn-dark" href="{% url 'Government:addinspection' circular.D_ID %}"> ADD INSPECTION</a></td>
+            <td><a type="button" class="btn btn-primary" href="{% url 'Government:distributor-update' circular.D_ID %}"> Update </a></td>
+            <td><a type="button" class="btn btn-danger" href="{% url 'Government:distributor-delete' circular.D_ID %}"> Delete </a></td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

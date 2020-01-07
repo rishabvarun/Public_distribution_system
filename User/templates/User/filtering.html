@@ -1,0 +1,81 @@
+{% extends 'User/base.html' %}
+{% load bootstrap %}
+{% load widget_tweaks %}
+
+{% block content %}
+<form method="get">
+    <div class="well">
+        <h4 style="margin-top: 0">Filter</h4>
+
+        
+        <table>
+            <tr>
+                <th><label for="id_Ration_id__icontains">Contain:</label></th>
+                <td>
+                    <input id="id_Ration_id__icontains" name="Ration_id__icontains" type="text" >
+                    <br>
+                    
+                </td>
+            </tr>
+            <tr>
+                <th><label for="id_Date__range">FROM:</label></th>
+                <td>
+                    <input id="id_Date__range" name="Date__range" type="date" >
+                    <br>
+                    
+                </td>
+            
+            
+                <th><label for="id_Date__lte">TO:</label></th>
+                <td>
+                    <input id="id_Date__lte" name="Date__lte" type="date" >
+                    <br>
+                    
+                </td>
+            </tr>
+            
+        </table>
+
+
+        <button type="submit" class="btn btn-primary">
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+    </div>
+</form>
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>transaction_Id</th>
+            <th>R_id</th>
+            <th>rice</th>
+            <th>wheat</th>
+            <th>keroosene</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in filter.qs %}
+        <tr>
+            <td>{{ user.Transaction_id}}</td>
+            <td>{{ user.Ration_id }}</td>
+            <td>{{ user.Rice }}</td>
+            td>{{ user.Wheat }}</td>
+            td>{{ user.Kerosene }}</td>
+            <td>{{ user.Date}}</td>
+            <td>
+                {% for group in user.groups.all %}
+                {{ group }}
+                {% empty %}
+                <em class="text-muted">No group</em>
+                {% endfor %}
+            </td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5">No data</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

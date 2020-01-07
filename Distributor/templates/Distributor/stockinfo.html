@@ -1,0 +1,47 @@
+{% extends 'Distributor/base.html'%}
+{% block content %}
+
+<html>
+<head>
+    {% load static %}
+    <title>Stock detail</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+
+
+</head>
+<body>
+    <h1>Stock Detail</h1>
+    <table  class="table">
+        <tr>
+            <th>SR NO</th>
+            <th>COMMODITY ID</th>
+            <th>COMMODITY NAME</th>
+            <th>CURRENT VALUE</th>
+            <th>Input Detail</th>
+            <th>Record  Detail</th>
+        </tr>
+        <form method="post">
+            {% csrf_token %}
+            {% for stock in Dist_info.D_Stock %}
+            
+            <tr>
+                <td></td>
+
+                <td>{{stock.C_ID }}</td>
+                <td>{{stock.C_Name}}</td>
+                <td>{{stock.C_Current}}</td>
+
+                <td><button formaction="inputentry" type="submit" name='stock_name' value={{stock.C_Name}}>Input Entry</button></td>
+                <td><button formaction="recordentry" type="submit" name='stock_name' value={{stock.C_Name}}>Record</button></td>
+
+            </tr>
+            {% endfor %}
+           
+        </form>
+
+
+    </table>
+</body>
+</html>
+{% endblock %}

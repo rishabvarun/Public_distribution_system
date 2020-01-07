@@ -1,0 +1,52 @@
+{% extends 'Government/base.html'%}
+{% block content %}
+ {% load static %}
+<title>Distributor Update</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+<br >
+
+ 
+        <form method="post">
+            {% csrf_token %}
+            <h2>Distributor Update</h2>
+            <table class="table">
+                <tr><th>SR NO</th>
+                    <th>FIELD</th>
+                    <th>VALUE</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>ID</td>
+                    <td>{{ form.D_ID }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Name</td>
+                    <td>{{ form.D_name }}</td>
+                </tr>
+                <tr><td></td>
+                    <td>Address</td>
+                    <td>{{ form.D_Address }}</td>
+                </tr>
+                <tr><td></td>
+                    <td>Locality</td>
+                    <td>{{ form.D_Locality }}</td>
+                </tr>
+                <tr><td></td>
+                    <td>Pin</td>
+                    <td>{{ form.D_PIN}}</td>
+                </tr>
+                <tr><td></td>
+                    <td></td>
+                    <td><input type="submit" class="btn btn-primary btn-lg btn-block" value="Update"></td>
+                </tr>
+            </table>
+
+
+        </form>
+    
+
+
+
+{% endblock %}

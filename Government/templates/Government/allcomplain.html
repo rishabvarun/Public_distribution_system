@@ -1,0 +1,50 @@
+{% extends 'Government/base.html' %}
+{% load bootstrap %}
+{% block content %}
+
+<h3>Distributor Complain</h3>
+<style>
+    .table {
+        counter-reset: serial-number; /* Set the serial number counter to 0 */
+    }
+
+        .table td:first-child:before {
+            counter-increment: serial-number; /* Increment the serial number counter */
+            content: counter(serial-number); /* Display the counter */
+        }
+</style>
+
+<table class="table">
+    <thead>
+        <tr>
+           <th>SR NO</th>
+            <th>Distributor id</th>
+            <th>Distributor name</th>
+            <th>Ration iD</th>
+            <th>Date</th>
+            <th>status</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for Dist in Distall %}
+        {%  for complain in Dist.D_Complain %}
+        <tr>
+            <td></td>
+            <td>{{Dist.D_ID}}</td>
+            <td>{{Dist.D_name}}</td>
+            <td>{{complain.Ration_id}}</td>
+            <td>{{complain.Date }}</td>
+            <td>{{complain.status}}</td>
+
+
+            </ul>
+            </td>
+        </tr>
+        {% endfor %}
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

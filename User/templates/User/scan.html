@@ -1,0 +1,37 @@
+{% extends 'User/base.html'%}
+{% block content%}
+
+<style>
+    .container {
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+<div class="d-flex justify-content-center align-items-center" style="height:550px;">
+    <div class="center"> 
+        <form method="POST" action="scan/login">
+            {%csrf_token%}
+            <h2>RATION NO</h2>
+            <h2>{{username}}</h2>
+            <input type="text" value={{username}} name="username" id="username" hidden="true">
+            <br>
+            <h2>PASSWORD</h2>
+            <br>
+            <input type="password" placeholder="enter your password here" name="password" id="password " required>
+            <br >
+            <br >
+            <button type="submit" value="Click Me" class="btn btn-primary btn-lg btn-block" ">Submit</button>
+
+
+        </form>
+    </div>
+</div>
+<div class="container">
+    
+
+    <br />
+    
+</div>
+{%endblock%}

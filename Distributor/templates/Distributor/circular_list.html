@@ -1,0 +1,90 @@
+{% extends 'Distributor/base.html'%}
+
+{% block content %}
+   {% load static %}
+<title>Circular List</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+
+
+</head>
+<h2>Circular  List</h2>
+
+<form method="get">
+    <div class="well">
+
+
+
+        <table class="table">
+            <tr>
+                <th>SR NO</th>
+                <th><label for="id_Cid__icontains">ID:</label></th>
+                <th><label for="id_Cname__icontains">Name:</label></th>
+                <th><label for="id_Cdate__lte">Date:</label></th>
+            </tr>
+            <tr>
+                <td></td>
+                <td>
+                    <input id="id_Cid__icontains" name="Cid__icontains" type="text">
+
+
+                </td>
+
+
+
+                <td>
+                    <input id="id_Cname__icontains" name="Cname__icontains" type="text">
+
+
+                </td>
+
+
+
+
+                <td>
+                    <input id="id_Cdate__lte" name="Cdate__lte" type="date">
+
+
+                </td>
+            </tr>
+
+        </table>
+
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+
+        <tr>
+            <th>SR NO</th>
+            <th>Circular id</th>
+            <th>Circular name</th>
+            <th>Circular Date</th>
+            <th>Circular Link</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        {%  for circular in filter.qs %}
+        <tr>
+            <td></td>
+            <td>{{circular.Cid}}</td>
+            <td>{{circular.Cname}}</td>
+            <td>{{circular.Cdate}}</td>
+            <td>
+                <a href="{{ circular.Cfile.url }}" class="btn btn-primary btn-sm">
+                    Download circular
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,120 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <style>
+
+                 #top  {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+        .navigation {
+            width: 300px;
+        }
+
+        /* reset our lists to remove bullet points and padding */
+        .mainmenu, .submenu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .mainmenu {
+            float: left;
+        }
+
+            /* make ALL links (main and submenu) have padding and background color */
+            .mainmenu a {
+                display: block;
+                background-color: #a39f9f;
+                text-decoration: none;
+                padding: 10px;
+                color: black;
+            }
+
+                /* add hover behaviour */
+                .mainmenu a:hover {
+                    background-color: #4CAF50;
+                }
+
+
+         
+            .mainmenu li:hover .submenu {
+                display: block;
+                max-height: 300px;
+            }
+
+     
+        .submenu a {
+            background-color: #999;
+        }
+
+            .submenu a:hover {
+                background-color: #666;
+            }
+
+       
+        .submenu {
+            overflow: hidden;
+            max-height: 0;
+            -webkit-transition: all 0.5s ease-out;
+        }
+
+        .abc {
+            float: left;
+            width: 85%;
+        }
+    </style>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <div>
+        <img id="top" align="middle" style="width:50%" height="150" src='https://enam.gov.in/web/Slider_gallary/1/slider_3.jpg'>
+    </div>
+    <div style="margin-top:-15px;padding:0 6px;"><iframe src="https://agmarknet.gov.in/agnew/namticker.aspx" style="width:100%;height:73px;border:none;"></iframe></div>
+    <nav class="navigation">
+        <ul class="mainmenu">
+            <li><a href="http://127.0.0.1:8000/Distributor/home">HOME</a></li>
+
+            <li>
+                <a href="http://127.0.0.1:8000/Distributor/home/addinput">Input Stock</a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1:8000/Distributor/home/update">Record Data</a>
+
+            </li>
+            <li>
+                <a href="http://127.0.0.1:8000/Distributor/home/stock">Stock Details</a>
+            </li>
+            <li> <a href="http://127.0.0.1:8000/Distributor/home/inspect">Inspection</a></li>
+
+
+            <li>
+                <a href="http://127.0.0.1:8000/Distributor/home/complain">Complain</a>
+
+            </li>
+            <li>
+                <a href="http://127.0.0.1:8000/Distributor/home/circularview">Circular</a>
+            </li>
+            <li>
+                <a href="http://127.0.0.1:8000/Distributor/login/home/logout">logout</a>
+            </li>
+        </ul>
+
+    </nav>
+
+
+    <div class="abc">
+        {% block content%}
+        {% endblock%}
+    </div>
+]
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    </body>
+</html>

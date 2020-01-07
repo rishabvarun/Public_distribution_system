@@ -1,0 +1,28 @@
+{%extends 'Government/base.html'%}
+
+
+
+{% load crispy_forms_tags %}
+    <style>
+        .row {
+            background-image: url('https://pdsportal.nic.in/images/banner3.jpg');
+            background-attachment: fixed;
+            background-size: cover;
+            
+            background-repeat: no-repeat;
+        }
+    </style>
+{% block content %}
+    <div style="background-repeat: no-repeat;background-size: cover;background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKdETAaIzLJz0vg7PdpA_FeDdHP72ryIFjPu35seJY7Dl77gdXIg&s');">
+            <div class="col-md-8 col-sm-10 col-12">
+
+                {% crispy form %}
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

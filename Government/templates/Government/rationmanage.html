@@ -1,0 +1,90 @@
+{% extends 'Government/base.html'%}
+{% load bootstrap%}
+{% block content %}
+  {% load static %}
+<title>Ration Management</title>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+</head>
+<h2>Ration  Manage</h2>
+
+<form method="get">
+    <div class="well">
+
+
+
+
+
+        <table class="table">
+            <tr>
+                <td></td>
+                <th><label for="id_Fname__icontains">Ration NO:</label></th>
+                <th><label for="id_Lname__icontains">Locality code:</label></th>
+                <th><label for="id_aadhar__exact">PIN:</label></th>
+
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="text" name="RNO__icontains" class=" form-control" id="id_RNO__icontains">
+                </td>
+
+                <td>
+                    <input type="number" name="Locality_Code__icontains" step="any" class=" form-control" id="id_Locality_Code__icontains">
+
+                </td>
+                <td>
+                    <input type="number" name="Pin__icontains" step="any" class=" form-control" id="id_Pin__icontains">
+                </td>
+
+            </tr>
+
+
+
+
+
+
+        </table>
+
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>SR NO</th>
+            <th>Ration NO</th>
+            <th>View Member</th>
+            <th>ADD Member</th>
+            <th>ADD BALANCE</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%  for circular in filter.qs %}
+        <tr>
+            <td></td>
+            <td>{{circular.RNO}}</td>
+
+            <td><a type="button" class="btn btn-info" href="{% url 'Government:rationinfo' circular.RNO %}"> View Member</a></td>
+            <td><a type="button" class="btn btn-primary" href="{% url 'Government:createperson' circular.RNO %}"> Add Member</a></td>
+            <td><a type="button" class="btn btn-success" href="{% url 'Government:addbalance' circular.RNO %}"> Add Balance</a></td>
+            <td><a type="button" class="btn btn-secondary" href="{% url 'Government:ration-update' circular.RNO %}"> Update</a></td>
+            <td><a type="button" class="btn btn-danger" href="{% url 'Government:ration-delete' circular.RNO %}"> Delete</a></td>
+
+
+
+
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

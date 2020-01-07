@@ -1,0 +1,107 @@
+{% extends 'User/base.html'%}
+{% block content %}
+
+<html>
+<head>
+    <style>
+        a{
+    position:absolute;
+    bottom: 5%;
+    
+}
+        #customers {
+            font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #customers td, #customers th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+
+
+
+            #customers th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #4CAF50;
+                color: white;
+            }
+
+        img.resize {
+            max-width: 20%;
+            max-height: 30%;
+        }
+            .table {
+  counter-reset: serial-number;  /* Set the serial number counter to 0 */
+}
+
+.table td:first-child:before {
+  counter-increment: serial-number;  /* Increment the serial number counter */
+  content: counter(serial-number);  /* Display the counter */
+}
+
+        
+    </style>
+</head>
+<body>
+    <h1>Ration Information</h1>
+    <table class="table">
+        <tr><th>SR NO</th>
+            <th> Ration NO</th>
+            <th> H NO</th>
+            <th>STREET NO</th>
+            <th>LOCALITY CODE </th>
+            <th>PIN</th>
+            <th>EMAIL</th>
+        </tr>
+        <tr><td></td>
+            <td>{{ration.RNO}}</td>
+            <td>{{ration.H_no}}</td>
+            <td>{{ration.Street}}</td>
+            <td>{{ration.Locality_Code}} </td>
+            <td>{{ration.Pin}}</td>
+            <td>{{ration.email}}</td>
+        </tr>
+
+    </table>
+
+    <h2>Person List</h2>
+    <table class="table">
+        <tr>
+            <th>SR NO</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>DOB</th>
+            <th>SEX</th>
+            <th>Image</th>
+        </tr>
+
+        {% for person in person_list %}
+        <tr>
+            <td></td>
+            <td>{{person.Fname}} {{person.Mname}} {{person.Lname}}  </td>
+            <td>{{person.age}}</td>
+            <td>{{person.DOB}}</td>
+            <td>{{person.sex}}</td>
+
+
+            <td>
+                <a href="{{person.photo.url}}" target="_blank">
+                    link
+
+                </a>
+            </td>
+
+        </tr>
+        {% endfor %}
+
+
+    </table>
+    <a href="http://127.0.0.1:8000/User/menu" type="button" class="btn btn-primary btn-lg btn-block">Back</a>
+</body>
+</html>
+{% endblock %}

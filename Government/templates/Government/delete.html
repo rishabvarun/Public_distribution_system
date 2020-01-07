@@ -1,0 +1,16 @@
+{%extends 'Government/base.html'%}
+{%block content%}
+<div class="d-flex justify-content-center align-items-center" style="height:550px;">
+    <div class="centered">
+        <form method="post">
+            {% csrf_token %}
+            <h1>Are you sure you want to delete "{{ object }}"?</h1>
+            <br >
+            <div class="d-flex justify-content-center align-items-center" ">
+
+                <input type="submit" class="btn btn-danger" value="Confirm">
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock%}

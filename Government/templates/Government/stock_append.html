@@ -1,0 +1,58 @@
+{% extends 'Government/base.html' %}
+{% load bootstrap %}
+{% block content %}
+<script>
+function FillBilling(f) {
+    if (f.billingtoo.checked == true) {
+        
+    
+      f.D_Record-0-R_Quantity.value = f.D_Input-0-I_Quantity.value ;
+  }
+}
+
+
+</script>
+<h3>Add a New Product</h3>
+<h1>test</h1>
+{% if error_message %}
+<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+<form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <p><label for="id_C_ID">C ID:</label> <input type="text" name="C_ID" maxlength="8" required id="id_C_ID"></p>
+    <p><label for="id_C_Name">C Name:</label> <input type="text" name="C_Name" maxlength="20" required id="id_C_Name"></p>
+    <p><label for="id_C_Current">C Current:</label> <input type="number" name="C_Current" value="0" step="any" required id="id_C_Current"></p>
+    <p>
+        <label for="id_D_Input-0-InputEntryForm">D Input:</label>
+        <table class="D_Input-array-model-field">
+            <tbody>
+                <tr><th><label for="id_D_Input-0-I_Quantity">I Quantity:</label></th><td><input type="number" name="D_Input-0-I_Quantity" step="any" id="id_D_Input-0-I_Quantity"></td></tr>
+                <tr><th><label for="id_D_Input-0-I_Gst">I Gst:</label></th><td><input type="text" name="D_Input-0-I_Gst" maxlength="15" id="id_D_Input-0-I_Gst"></td></tr>
+                <tr><th><label for="id_D_Input-0-DELETE">Delete:</label></th><td><input type="checkbox" name="D_Input-0-DELETE" id="id_D_Input-0-DELETE"></td></tr>
+            </tbody>
+        </table>
+        <input type="hidden" name="D_Input-TOTAL_FORMS" value="1" id="id_D_Input-TOTAL_FORMS"><input type="hidden" name="D_Input-INITIAL_FORMS" value="0" id="id_D_Input-INITIAL_FORMS"><input type="hidden" name="D_Input-MIN_NUM_FORMS" value="0" id="id_D_Input-MIN_NUM_FORMS"><input type="hidden" name="D_Input-MAX_NUM_FORMS" value="1000" id="id_D_Input-MAX_NUM_FORMS">
+    </p>
+    <p>
+        <label for="id_D_Record-0-RecordForm">D Record:</label>
+        <table class="D_Record-array-model-field">
+            <tbody>
+                <tr><th><label for="id_D_Record-0-R_Quantity">R Quantity:</label></th><td><input type="number" name="D_Record-0-R_Quantity" value="0" step="any" id="id_D_Record-0-R_Quantity"></td></tr>
+                <tr><th><label for="id_D_Record-0-DELETE">Delete:</label></th><td><input type="checkbox" name="D_Record-0-DELETE" id="id_D_Record-0-DELETE"></td></tr>
+            </tbody>
+        </table>
+        <input type="hidden" name="D_Record-TOTAL_FORMS" value="1" id="id_D_Record-TOTAL_FORMS"><input type="hidden" name="D_Record-INITIAL_FORMS" value="0" id="id_D_Record-INITIAL_FORMS"><input type="hidden" name="D_Record-MIN_NUM_FORMS" value="0" id="id_D_Record-MIN_NUM_FORMS"><input type="hidden" name="D_Record-MAX_NUM_FORMS" value="1000" id="id_D_Record-MAX_NUM_FORMS">
+    </p>
+    <br>
+
+    <input type="checkbox" name="billingtoo" onclick="FillBilling(this.form)">
+    <em>Check this box if Billing Address and Mailing Address are the same.</em>
+    
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+        </div>
+</form>
+{% endblock %}

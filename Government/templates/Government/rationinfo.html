@@ -1,0 +1,73 @@
+{% extends 'Government/base.html'%}
+{% block content %}
+
+    <html>
+
+
+    {% load static %}
+    <title>Ration search</title>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+    </head>
+    <body>
+        <h1>Ration Information</h1>
+        <table class="table">
+            <tr>
+                <th> Ration NO</th>
+                <th> H NO</th>
+                <th>STREET NO</th>
+                <th>LOCALITY CODE </th>
+                <th>PIN</th>
+                <th>EMAIL</th>
+            </tr>
+            <tr>
+                <td>{{ration.RNO}}</td>
+                <td>{{ration.H_no}}</td>
+                <td>{{ration.Street}}</td>
+                <td>{{ration.Locality_Code}} </td>
+                <td>{{ration.Pin}}</td>
+                <td>{{ration.email}}</td>
+            </tr>
+
+        </table>
+
+        <h2>Person List</h2>
+        <table class="table">
+            <tr>
+                <th>SR NO</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>DOB</th>
+                <th>SEX</th>
+                <th>Image</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+
+            {% for person in person_list %}
+            <tr>
+                <td></td>
+                <td>{{person.Fname}} {{person.Mname}} {{person.Lname}}  </td>
+                <td>{{person.age}}</td>
+                <td>{{person.DOB}}</td>
+                <td>{{person.sex}}</td>
+
+
+                <td>
+
+                    <a href="{{person.photo.url}}" target="_blank">
+                        link
+
+                    </a>
+                </td>
+                <td><a type="button" class="btn btn-primary" href="{% url 'Government:person-update' person.id %}"> Update</a></td>
+                <td><a type="button" class="btn btn-danger" href="{% url 'Government:person-delete' person.id %}"> Delete</a></td>
+            </tr>
+            {% endfor %}
+
+
+        </table>
+
+    </body>
+    </html>
+{% endblock %}

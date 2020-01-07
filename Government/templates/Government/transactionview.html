@@ -1,0 +1,89 @@
+{% extends 'Government/base.html'%}
+{% load bootstrap %}
+{% block content %}
+  {% load static %}
+    <title>Transaction List</title>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+</head>
+<h2>Transaction List</h2>
+
+<form method="get">
+    <div class="well">
+      
+
+        <table class="table">
+            <tr>
+                <td></td>
+                <th><label for="id_D_ID__icontains">TRANSACTION ID:</label></th>
+                <th><label for="id_D_name__exact">DISTRIBUTOR ID:</label></th>
+                <th><label for="id_D_PIN__icontains">RATION ID:</label></th>
+                <th><label for="id_D_Locality__icontains">DATE:</label></th>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="text" name="Transaction_id__icontains" class=" form-control" id="id_Transaction_id__icontains">
+                </td>
+                <td>
+                    <input type="text" name="Distributor_id__icontains" class=" form-control" id="id_Distributor_id__icontains">
+
+                </td>
+                <td>
+                    <input type="text" name="Ration_id__icontains" class=" form-control" id="id_Ration_id__icontains">
+                </td>
+                <td>
+                    <input type="date" name="Date" class=" form-control" id="id_Date">
+                </td>
+            </tr>
+
+
+
+
+
+
+        </table>
+
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>SR NO</th>
+            <th>Transaction ID</th>
+            <th>Ration id</th>
+            <th>Distributor id</th>
+            <th>Rice</th>
+            <th>Wheat</th>
+            <th>Kerosene</th>
+            <th>amount</th>
+            <th>time</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%  for circular in filter.qs %}
+        <tr>
+            <td></td>
+            <td>{{circular.Transaction_id}}</td>
+            <td>{{circular.Ration_id}}</td>
+            <td>{{circular.Distributor_id}}</td>
+            <td>{{circular.Rice}}</td>
+            <td>{{circular.Wheat}}</td>
+            <td>{{circular.Kerosene}}</td>
+            <td>{{circular.amount}}</td>
+            <td>{{circular.time}}</td>
+            <td>{{circular.Date}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+{% block content %}
+ <h1>userlogin</h1>
+    {% if username is None %}
+        <form role="form" method="post"  >
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" onclick="login/menu" value="Submit" class="btn btn-info">LogIn</button>
+        </form>
+    {% else %}
+        <h3>Welcome you are signed in as {{ username }}</h3>
+        <a href="{% url "User-sessions" %}?action=">LogOut</a>
+    {% endif %}
+ 
+{% endblock %}

@@ -1,0 +1,87 @@
+{% extends 'Government/base.html'%}
+{% load bootstrap%}
+{% block content %}
+     {% load static %}
+<title>Ration search</title>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+</head>
+<h2>Ration  Search</h2>
+
+<form method="get">
+    <div class="well">
+       
+
+
+
+
+        <table class="table">
+            <tr>
+                <td></td>
+                <th><label for="id_Fname__icontains">Ration NO:</label></th>
+                <th><label for="id_Lname__icontains">Locality code:</label></th>
+                <th><label for="id_aadhar__exact">PIN:</label></th>
+
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="text" name="RNO__icontains" class=" form-control" id="id_RNO__icontains">
+                </td>
+
+                <td>
+                    <input type="number" name="Locality_Code__icontains" step="any" class=" form-control" id="id_Locality_Code__icontains">
+
+                </td>
+                <td>
+                    <input type="number" name="Pin__icontains" step="any" class=" form-control" id="id_Pin__icontains">
+                </td>
+
+            </tr>
+
+
+
+
+
+
+        </table>
+
+
+        <button type="submit" class="btn btn-primary btn-lg btn-block">
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>SR NO</th>
+            <th>Ration NO</th>
+            <th>H NO</th>
+            <th>Street NO</th>
+            <th>Locality code</th>
+            <th>PIN</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%  for circular in filter.qs %}
+        <tr>
+            <td></td>
+            <td>{{circular.RNO}}</td>
+
+            <td>{{circular.H_no}}</td>
+            <td>{{circular.Street}}</td>
+            <td>{{circular.Locality_Code}}</td>
+            <td>{{circular.Pin}}</td>
+
+
+
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

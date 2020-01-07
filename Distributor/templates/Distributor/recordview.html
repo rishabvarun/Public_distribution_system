@@ -1,0 +1,76 @@
+{% extends 'Distributor/base.html'%}
+{% block content %}
+
+
+
+
+
+<html>
+<head>
+
+    <title>Record</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', { 'packages': ['corechart'] });
+        google.charts.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            var data = google.visualization.arrayToDataTable({{ json_list|safe}});
+
+            var options = {
+                title: '',
+                curveType: 'function',
+                legend: { position: 'bottom' },
+                 vAxis: {
+          title: 'Quantity'
+        },
+            };
+
+            var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
+
+            chart.draw(data, options);
+        }
+
+    </script>
+</head>
+<body>
+    <h2>{{stock_name}} Record</h2>
+    <div id="curve_chart" style="width: 1200px; height: 400px"></div>
+    <br>
+    <table class="table">
+
+        <tr>
+            <th>SR NO</th>
+            <th>Record Date</th>
+            <th>Record Quantity</th>
+
+
+
+        </tr>
+
+        {% for stock in Dist_info.D_Stock  %}
+
+
+        {%ifequal stock.C_Name stock_name %}
+        {% for entry in  stock.D_Record %}
+        <tr>
+            <td></td>
+            <td>{{entry.R_Date }}</td>
+            <td>{{entry.R_Quantity }}</td>
+
+        </tr>
+        {% endfor %}
+        {% endifequal %}
+        {% endfor %}
+
+
+    </table>
+</body>
+
+</html>
+
+{% endblock %}

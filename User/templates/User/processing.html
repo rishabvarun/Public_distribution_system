@@ -1,0 +1,63 @@
+{% extends 'User/base.html'%}
+{% block content %}
+<html>
+<head>
+    <meta http-equiv="refresh" content="10;url=http://127.0.0.1:8000/User/">
+    <style>
+
+    </style>
+</head>
+<body>
+<table>
+    <tr><h3>Transaction</h3></tr>
+    <tr><h3>Ration ID={{R_ID}}</h3></tr>
+<tr><h3>Distributor ID={{D_ID}}</h3></tr>
+<tr><h3> Transaction ID={{Transaction_id}}       </h3></tr>
+<tr><h3>Time={{time}}</h3></tr>
+
+    {%for x in error%}
+   <tr><h3>{{x}}</h3></tr> 
+    {% endfor %}
+</table>
+<h2>Automated Bill</h2>
+<table class="table">
+    <tr>
+        <th>SR NO</th>
+        <th>Commodity</th>
+        <th>Quantity</th>
+        <th>Available balance</th>
+        <th>Cost</th>
+    </tr>
+    <tr>
+        <th>1</th>
+        <td>Rice</td>
+        <td>{{rice}}</td>
+        <td>  {{r_balance}} </td>
+        <td> {{x}}</td>
+    </tr>
+    <tr>
+        <td>2 </td>
+        <td>Wheat</td>
+        <td>{{wheat}}</td>
+        <td> {{w_balance}}</td>
+        <td> {{y}}</td>
+    </tr>
+    <tr>
+        <td>3 </td>
+        <td>Kerosene</td>
+        <td>{{kerosene}}</td>
+        <td> {{k_balance}}</td>
+        <td> {{z}}</td>
+    </tr>
+    <tr>
+        <td> </td>
+        <td></td>
+        <td></td>
+        <td> TOTAL=</td>
+        <td> {{Total}}</td>
+    </tr>
+</table>
+</body>
+</html>
+
+{% endblock %}

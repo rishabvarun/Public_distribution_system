@@ -1,0 +1,80 @@
+{% extends 'Government/base.html'%}
+{% block content %}
+ {% load static %}
+<title>Distributor Update</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+
+        <form method="post">
+            {% csrf_token %}
+            <h2>Person Update</h2>
+            <table class="table">
+                <tr>
+                    <th>SR NO</th>
+                    <th>FIELD</th>
+                    <th>VALUE</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Ration NO</td>
+                    <td>{{ form.Fname }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>House NO</td>
+                    <td>{{ form.Mname }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Street </td>
+                    <td>{{ form.Lname }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Locality code</td>
+                    <td>{{ form.aadhar }}</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>Pin</td>
+                    <td>{{ form.DOB}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Email</td>
+                    <td>{{ form.age}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Email</td>
+                    <td>{{ form.sex}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Email</td>
+                    <td>{{ form.fingerprint}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Email</td>
+                    <td>{{ form.photo}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Email</td>
+                    <td>{{ form.rationcard}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input type="submit" class="btn btn-primary btn-lg btn-block" value="Update"></td>
+                </tr>
+            </table>
+
+
+        </form>
+
+
+
+{% endblock %}

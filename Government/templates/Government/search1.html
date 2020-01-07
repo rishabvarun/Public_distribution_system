@@ -1,0 +1,41 @@
+{% extends 'Government/base.html'%}
+
+{% block content %}
+<h2>Circular  List</h2>
+<h4 style="margin-top: 0">Enter Distributor id</h4>
+<form method="POST" action="">
+    {% csrf_token %}
+   
+        
+
+
+        <table class="table">
+            <tr>
+                <th><label for="D_ID">ID:</label></th>
+                <td>
+                    <input put name="D_ID" id="D_ID" type="text">
+
+                </td>
+            </tr>
+			<tr>
+				<td> <a href="allcomplain" type="button" class="btn btn-primary ">View all Complain</a></td>
+			<tr>
+          
+
+
+
+
+
+
+        </table>
+
+
+        <button type="submit" class="btn btn-primary">
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+  
+</form>
+
+
+
+{% endblock %}

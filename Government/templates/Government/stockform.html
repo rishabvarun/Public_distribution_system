@@ -1,0 +1,57 @@
+{%  extends 'Government/base.html' %}
+{% block content %}
+
+<html>
+  {% load static %}
+<title>Stock append</title>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+</head>
+
+<body>
+    <h1>First Stock</h1>
+    <form method="post" action="">
+        {% csrf_token %}
+        <table class="table">
+            <tr>
+                <th>SR NO</th>
+                <th>Commodity name</th>
+                <th>Commodity CODE</th>
+                <th>NEW STOCK</th>
+
+            </tr>
+            <tr>
+                <td>1</td>
+                <td><h2>Rice</h2></td>
+                <td>123</td>
+                <td>{{form.rice}}</td>
+
+
+            </tr>
+            <tr>
+                <td>2</td>
+                <td><h2>Wheat</h2></td>
+                <td>856</td>
+                <td>{{form.wheat}}</td>
+
+
+            </tr>
+            <tr>
+                <td>3</td>
+                <td><h2>Kerosene</h2></td>
+                <td>675</td>
+                <td>{{form.kerosene}}</td>
+
+
+            </tr>
+
+           
+
+        </table>
+        <button type="submit" onclick="window.href='home'" class="btn btn-success">Submit</button>
+    </form>
+
+</body>
+</html>
+
+{% endblock %}

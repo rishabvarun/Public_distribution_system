@@ -1,0 +1,30 @@
+{%  extends 'Government/base.html'%}
+
+
+{% block content%}
+
+
+
+<html>
+<head>
+</head>
+<body>
+
+    <div class="d-flex justify-content-center align-items-center" style="height:550px;">
+        <div class="center">
+            <form method="post" action="">
+                {% csrf_token %}
+                <h2>Amount</h2>
+                <br >
+                {{form.amount}}
+                <br >
+                <br >
+                <button type="submit" onclick="window.href='home'" class="btn btn-success">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+
+{% endblock%}

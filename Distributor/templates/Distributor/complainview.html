@@ -1,0 +1,45 @@
+{% extends 'Distributor/base.html'%}
+{% load bootstrap %}
+{% block content %}
+   {% load static %}
+<title>Complain detail</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+
+
+
+<h3>Distributor Complain</h3>
+<h3>Distributor ID={{Dist.D_ID}}</h3>
+<h3>Distributor Name={{Dist.D_name}}</h3>
+<table class="table">
+    <thead>
+        <tr>
+            <th>SR NO</th>
+            <th>Ration iD</th>
+            <th>Date</th>
+            <th>status</th>
+            <th>complain List</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%  for complain in Dist.D_Complain %}
+        <tr>
+            <td></td>
+            <td>{{complain.Ration_id}}</td>
+            <td>{{complain.Date }}</td>
+            <td>{{complain.status}}</td>
+            <td>
+                <ul class="list-group list-group-flush">
+                    {% for comp in complain.comp %}
+                    <li class="list-group-item">{{ comp.complain }}</li>
+                    {% endfor%}
+
+                </ul>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

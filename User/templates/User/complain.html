@@ -1,0 +1,35 @@
+{% extends 'User/base.html' %}
+{% load bootstrap %}
+{% block content %}
+<style>
+    a {
+        position: absolute;
+        bottom: 5%;
+    }
+</style>
+
+
+{% if error_message %}
+<p><strong>{{ error_message }}</strong></p>
+{% endif %}
+<div class="d-flex justify-content-center align-items-center" style="height:550px;">
+    <div class="centered">
+        <h1>Register Your Complain</h1>
+        <br >
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h2>{{form|bootstrap}}</h2>
+
+
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                    <button type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<a href="http://127.0.0.1:8000/User/menu" type="button" class="btn btn-primary btn-lg btn-block">Back</a>
+
+{% endblock %}

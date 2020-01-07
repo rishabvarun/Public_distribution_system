@@ -1,0 +1,45 @@
+{% extends 'Government/base.html'%}
+{% block content %}
+ {% load static %}
+<title>Inspection</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+
+<form method="post">
+    {% csrf_token %}
+    <h2>Inspection report</h2>
+    <table class="table">
+        <tr>
+            <th>SR NO</th>
+            <th>FIELD</th>
+            <th>VALUE</th>
+        </tr>
+        <tr>
+            <td></td>
+            <td>Inspection ID</td>
+            <td>{{ form.I_id }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>OFFICER</td>
+            <td>{{ form.officer }}</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>File</td>
+            <td>{{ form.file}}</td>
+        </tr>
+       
+        <tr>
+            <td></td>
+            <td></td>
+            <td><input type="submit" class="btn btn-primary btn-lg btn-block" value="ADD"></td>
+        </tr>
+    </table>
+
+
+</form>
+
+
+
+{% endblock %}

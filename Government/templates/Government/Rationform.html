@@ -1,0 +1,65 @@
+{% extends 'Government/base.html'%}
+{% block content %}
+ {% load static %}
+<title>Ration Update</title>
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+
+        <form method="post">
+            {% csrf_token %}
+            <h2>Ration Update</h2>
+            <table class="table">
+                <tr>
+                    <th>SR NO</th>
+                    <th>FIELD</th>
+                    <th>VALUE</th>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Ration NO</td>
+                    <td>{{ form.RNO }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Category</td>
+                    <td>{{ form.Category }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>House NO</td>
+                    <td>{{ form.H_no }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Street </td>
+                    <td>{{ form.Street }}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Locality code</td>
+                    <td>{{ form.Locality_Code }}</td>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td>Pin</td>
+                    <td>{{ form.Pin}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>Email</td>
+                    <td>{{ form.email}}</td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td><input type="submit" class="btn btn-primary btn-lg btn-block" value="Update"></td>
+                </tr>
+            </table>
+
+
+        </form>
+ 
+
+
+{% endblock %}

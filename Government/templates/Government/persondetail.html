@@ -1,0 +1,103 @@
+{% extends 'Government/base.html'%}
+{% load bootstrap%}
+{% load static %}
+{% block content %}
+<html>
+<head>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+</head>
+
+<body>
+    <h2>Person  List</h2>
+
+    <form method="get">
+        <div class="well">
+
+
+            <table class="table">
+                <tr>
+                    <th>SR NO</th>
+                    <th><label for="id_Fname__icontains">First Name:</label></th>
+                    <th><label for="id_Lname__icontains">Last Name:</label></th>
+                    <th><label for="id_aadhar__exact">Aadhar:</label></th>
+                    <th><label for="id_rationcard__exact">Rationcard ID:</label></th>
+                </tr>
+
+                <tr>
+                    <td></td>
+                    <td><input type="text" name="Fname__icontains" class=" form-control" id="id_Fname__icontains"></td>
+
+
+
+                    <td>
+                        <input type="text" name="Lname__icontains" class=" form-control" id="id_Lname__icontains">
+
+                    </td>
+                    <td>
+                        <input type="text" name="aadhar" class=" form-control" id="id_aadhar">
+                    </td>
+                    <td>
+                        <input type='text' name="rationcard" class=" form-control" id="id_rationcard">
+
+
+
+                    </td>
+                </tr>
+
+
+
+
+
+
+            </table>
+
+
+            <button type="submit" class="btn btn-primary btn-lg btn-block">
+                <span class="glyphicon glyphicon-search"></span> Search
+            </button>
+        </div>
+    </form>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>SR NO</th>
+                <th>First Name</th>
+                <th>Middle Name</th>
+                <th>Last Name</th>
+                <th>Aadhar</th>
+                <th>Sex</th>
+                <th>Age</th>
+                <th>Ration ID</th>
+                <th>Image</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {%  for circular in filter.qs %}
+            <tr>
+                <td></td>
+                <td>{{circular.Fname}}</td>
+                <td>{{circular.Mname}}</td>
+                <td>{{circular.Lname}}</td>
+                <td>{{circular.aadhar}}</td>
+                <td>{{circular.sex}}</td>
+                <td>{{circular.age}}</td>
+                <td>{{circular.rationcard}}</td>
+                <td>
+                    <a href="{{circular.photo.url}}" target="_blank">
+                        link
+
+                    </a>
+                </td>
+
+            </tr>
+            {% endfor %}
+        </tbody>
+
+    </table>
+</body>
+</html>
+
+        {% endblock %}

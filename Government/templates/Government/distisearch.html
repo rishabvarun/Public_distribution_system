@@ -1,0 +1,22 @@
+{% extends 'Government/base.html' %}
+{% load bootstrap %}
+{% block content %}
+
+<h3>Search Ditributor</h3>
+
+
+<form action="inspectview" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    Distributor ID<br >
+
+    <input type="text" name="D_ID" required>
+    
+
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success">Submit</button>
+        </div>
+    </div>
+</form>
+{% endblock %}

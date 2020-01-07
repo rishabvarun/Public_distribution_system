@@ -1,0 +1,38 @@
+{% extends 'Government/base.html' %}
+{% load bootstrap %}
+{% block content %}
+
+<h3>Distributor Inspect</h3>
+  {% load static %}
+<title>Inspection report</title>
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}" media="screen" />
+</head>
+
+<table class="table">
+    <thead>
+        <tr><th>SR NO</th>
+            <th>Inspection ID</th>
+            <th>Officer Name</th>
+            <th>Date</th>
+            <th>Document</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%  for inspect in Dist.D_Inspect %}
+        <tr><td></td>
+            <td>{{inspect.I_id}}</td>
+            <td>{{inspect.officer }}</td>
+            <td>{{inspect.date}}</td>
+            <td>
+                <a href="{{ inspect.file.url }}" class="btn btn-primary btn-sm">
+                    Download Inspection report
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+{% endblock %}

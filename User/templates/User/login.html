@@ -1,0 +1,63 @@
+{%  extends 'User/base.html'%}
+
+
+{% block content%}
+
+
+
+<html>
+<head>
+<style>
+    body {
+        display:grid;
+        grid-template-columns:1fr 1fr; 
+        grid-template-rows :2fr 8fr;
+        
+        
+        grid-template-areas:
+            "bulletin bulletin"
+            "adv logform";
+
+    }
+    .leftad {
+        grid-area:adv;
+        background-color:green;
+    }
+    .rightform {
+        grid-area:logform;
+        
+    }
+    .bullet {
+        grid-area:bulletin;
+        background-color:aqua;
+    }
+</style>
+    </head>
+<body>
+    <div class="bullet">
+        this is bulletin
+    </div>
+    <div class="leftad">
+        this is left ad with animation
+    </div>
+    <div class="rightform">
+        <form method="post">
+            
+                <label for="exampleInputEmail1">USER_ID</label>
+                <input type="text"  aria-describedby="emailHelp" name="user_id" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          
+           
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password"  name="user_pass" placeholder="Password">
+            
+
+             <a href="login/menu" button type="submit" class="btn btn-primary">Submit</a>
+           
+        </form>
+    </div>
+
+</body>
+</html>
+
+{% endblock%}

@@ -1,0 +1,39 @@
+{% extends 'Government/base.html'%}
+
+{% block content %}
+<h2>Cicular  List</h2>
+<h4 style="margin-top: 0">Enter Distributor id</h4>
+<form method="POST" action="">
+    {% csrf_token %}
+   
+        
+
+
+        <table class="table">
+            <tr>
+                <th><label for="D_ID">ID:</label></th>
+                <td>
+                    <input name="D_ID" id="D_ID" type="text">
+
+                </td>
+            </tr>
+
+          
+
+
+
+
+
+
+        </table>
+
+
+        <button type="submit" class="btn btn-primary">
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+  
+</form>
+
+
+
+{% endblock %}
