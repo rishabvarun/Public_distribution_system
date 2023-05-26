@@ -1,4 +1,4 @@
-#**Public Distribution Sytsem**
+# **Public Distribution Sytsem**
 
 This is a project which simulates the public distribution system in India. It is a step taken towards a smart digital India, by making
 smart ration cards and online PDS portal inorder to reduce the malpractices in the current system. Here the distributor can only add stock
